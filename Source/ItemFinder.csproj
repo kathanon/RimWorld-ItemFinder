@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ModName>ItemFinder</ModName>
+    <ModId>kathanon.$(ModName)</ModId>
+    <MultiVersion>true</MultiVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82AD1D44-3B57-44E0-ADD4-63EC97F77439}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <!-- Import base build file -->
+  <Import Project="RimWorld.targets" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- RimWorld DLLs -->
+    <Reference Include="Assembly-CSharp" Private="False">
+      <HintPath>$(RimWorldDlls)\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule" Private="False">
+      <HintPath>$(RimWorldDlls)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule" Private="False">
+      <HintPath>$(RimWorldDlls)\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule" Private="False">
+      <HintPath>$(RimWorldDlls)\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI" Private="False">
+      <HintPath>$(RimWorldDlls)\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <!-- Mod Dlls -->
+    <Reference Include="0Harmony" Private="False">
+      <HintPath>$(HarmonyLibPath)</HintPath>
+    </Reference>
+    <Reference Include="HugsLib" Private="False">
+      <HintPath>$(HugsLibPath)</HintPath>
+    </Reference>
+    <!-- Other Dlls -->
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <!-- Project files -->
+  <ItemGroup>
+    <Compile Include="AddButton_Patch.cs" />
+    <Compile Include="ItemDialog.cs" />
+    <Compile Include="Resources.cs" />
+    <Compile Include="Storage.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="ResourceListing_Patches.cs" />
+    <Compile Include="Strings.cs" />
+  </ItemGroup>
+  <!-- Show ModFiles in solution explorer -->
+  <ItemGroup>
+    <None Include="$(ModFiles)\**" CopyToOutputDirectory="PreserveNewest">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </None>
+  </ItemGroup>
+</Project>

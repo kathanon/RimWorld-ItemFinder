@@ -1,0 +1,24 @@
+<ModMetaData>
+	<name>Item Finder</name>
+	<author>kathanon</author>
+	<packageId>kathanon.ItemFinder</packageId>
+	<supportedVersions>
+		<li>1.4</li>
+	</supportedVersions>
+	<description>Makes it easier to find where items are in storage.
+    
+When hovering over any single resource in the resource list on the left side of the screen, all items of that type in storage are highlighted. To find items that are not in that list, use the magnifying glass icon in the lower right of the screen. It toggles a searchable list of all stored items that are not in the resource list. Hovering over items in the box highlights the items in the same way.</description>
+	<url>https://github.com/kathanon/RimWorld-ItemFinder</url>
+
+	<modDependencies>
+		<li>
+			<packageId>UnlimitedHugs.HugsLib</packageId>
+			<displayName>HugsLib</displayName>
+			<downloadUrl>https://github.com/UnlimitedHugs/RimworldHugsLib/releases/latest</downloadUrl>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/818773962</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>UnlimitedHugs.HugsLib</li>
+	</loadAfter>
+</ModMetaData>
